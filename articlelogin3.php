@@ -19,6 +19,7 @@
                 <form action="" method="POST">
                     <label for="title" class="">Title</label><br>
                     <input type="text" name="title" id="title"><br>
+                    
 
                     <label for="content" class="">Content</label><br>
                     <input type="text" name=" content" id="content"><br>
