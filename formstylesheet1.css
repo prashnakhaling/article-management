@@ -1,0 +1,79 @@
+* {
+
+}
+/* css for sing up form */
+.sectionpage_1 {
+    max-width: 400px;
+    /* height: 500px; */
+    margin: auto;
+
+}
+
+.mainpage {
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #9BB8CD;
+}
+
+.innerpage1 {
+    width: 300px;
+    height: 370px;
+    border-radius: 10px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(255, 255, 255);
+}
+
+/* .innerpage{
+    height:300px;
+    margin:auto;
+    display:flex;
+    justify-items: center;
+    align-items: center; 
+}  */
+
+.headingpage {
+    font-family: sans-serif;
+
+}
+
+#details {
+    /* margin: auto; */
+    width: 235px;
+    height: 27px;
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    border: none;
+    /* line-height: 5px; */
+    background: transparent;
+    border-bottom: 1px solid;
+
+}
+
+button {
+    font-size: 15px;
+    font-family: sans-serif;
+    width: 100px;
+    height: 25px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 5px;
+    border: 1px solid;
+    transition-duration: 0.5s;
+
+
+}
+
+button:hover {
+    color: #4F6F52;
+
+}
