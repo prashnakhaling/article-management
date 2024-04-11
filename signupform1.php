@@ -43,11 +43,11 @@ if (isset($_POST['signup'])) {
         // mysqli_query($connectin, $sql);
         if (mysqli_connect_errno()) {
             die("Failed to connect:") . mysqli_connect_error();
+
         } else {
-            mysqli_query($connectin, $sql);
-        }
-        if (mysqli_query($connectin, $sql)){
-             header ("Locatoin:loginform2.php");
+            header("Location:loginform2.php");
+            exit();
+
         }
         // if (mysqli_connect_error()) {
         //     echo "Please enter valid information. <br>";
