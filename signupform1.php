@@ -20,38 +20,41 @@ if (isset($_POST['signup'])) {
 
     } else if (!(preg_match($pattern, $password))) {
         echo "incorrect pattern.<br>";
-    }else if($password != $confirmPassword){
+    } else if ($password != $confirmPassword) {
         echo "password didn't match.<br>";
-    } 
-    else if (!(preg_match($numPattern, $number))) {
+    } else if (!(preg_match($numPattern, $number))) {
         echo "password didn't match.<br>";
-    } 
+    } else {
 
-    // else {
+        // else {
 //     header("Location:loginform2.php");
 // }
 
-    // for connecting to database
+        // for connecting to database
 
-    $host = 'localhost';
-    $name = 'root';
-    $hostpassword = '';
-    $databasename = 'articlemanagement';
+        $host = 'localhost';
+        $name = 'root';
+        $hostpassword = '';
+        $databasename = 'articlemanagement';
 
-    $connectin = mysqli_connect($host, $name, $hostpassword, $databasename);
-    $sql = "INSERT INTO registrationdetails (username, email, password, number) values ('$username', '$email', '$password', '$number')";
+        $connectin = mysqli_connect($host, $name, $hostpassword, $databasename);
+        $sql = "INSERT INTO registrationdetails (username, email, password, number) values ('$username', '$email', '$password', '$number')";
 
-    // mysqli_query($connectin, $sql);
-    if (mysqli_connect_errno()){
-        echo "failed to connect." . mysqli_connect_error();
-    }else {
-      mysqli_query($connectin, $sql);
+        // mysqli_query($connectin, $sql);
+        if (mysqli_connect_errno()) {
+            die("Failed to connect:") . mysqli_connect_error();
+        } else {
+            mysqli_query($connectin, $sql);
+        }
+        if (mysqli_query($connectin, $sql)){
+             header ("Locatoin:loginform2.php");
+        }
+        // if (mysqli_connect_error()) {
+        //     echo "Please enter valid information. <br>";
+        // } else {
+        //     header("Location:loginform2.php");
+        // }
     }
-    // if (mysqli_connect_error()) {
-    //     echo "Please enter valid information. <br>";
-    // } else {
-    //     header("Location:loginform2.php");
-    // }
 }
 
 
