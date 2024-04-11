@@ -4,7 +4,7 @@ if (isset($_POST['signup'])) {
     $email = $_POST['email'];
     $password = $_POST['password'];
     $confirmPassword = $_POST['confirmpassword'];
-    $hasedpassword = md5($password);
+    $hasedpassword =password_hash($password,PASSWORD_DEFAULT);
     $number = $_POST['number'];
     $pattern = "/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{8,16}$/";
     $numPattern = "/^(?=.[0-9]).{10}$/";
