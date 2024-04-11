@@ -4,11 +4,11 @@ if (isset($_POST['signup'])) {
     $email = $_POST['email'];
     $password = $_POST['password'];
     $confirmPassword = $_POST['confirmpassword'];
-    $hasedpassword =password_hash($password,PASSWORD_DEFAULT);
+    $hasedpassword = password_hash($password, PASSWORD_DEFAULT);
     $number = $_POST['number'];
     $pattern = "/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{8,16}$/";
     $numPattern = "/^(?=.[0-9]).{10}$/";
-    $mailPattern = "/^[a-zA-Z]+ @[a-zA-Z]+\.[a-zA-Z]{2,4}$/";
+    // $mailPattern = "/^[a-zA-Z]+ @[a-zA-Z]+\.[a-zA-Z]{2,4}$/";
     $errors = "";
 
 
@@ -16,8 +16,9 @@ if (isset($_POST['signup'])) {
         echo "Please fill up the form.";
     } else if ((strlen($username) < 8)) {
         echo "username should be more than 8 characters.<br>";
-    } else if (!(preg_match($mailPattern, $email))) {
-        echo "Invalid mail. <br>";
+    } else if (filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)) {
+        echo "invalid email.<br>";
+
     } else if (!(preg_match($pattern, $password))) {
         echo "incorrect pattern.<br>";
     } else if (!(preg_match($numPattern, $number))) {
