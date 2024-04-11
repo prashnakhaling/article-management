@@ -1,12 +1,9 @@
-* {
-
-}
 /* css for sing up form */
 .sectionpage_1 {
-    max-width: 400px;
+    max-width: 420px;
     /* height: 500px; */
     margin: auto;
-
+   
 }
 
 .mainpage {
@@ -14,19 +11,24 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    border-radius: 10px;
     background-color: #9BB8CD;
+    
+    
 }
 
 .innerpage1 {
-    width: 300px;
-    height: 370px;
+    width: 320px;
+    height: 430px;
     border-radius: 10px;
-    margin-top: 50px;
-    margin-bottom: 50px;
+    margin-top: 45px;
+    margin-bottom: 45px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    /* border-radius:10px; */
     background-color: rgb(255, 255, 255);
+   
 }
 
 /* .innerpage{

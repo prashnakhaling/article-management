@@ -1,3 +1,53 @@
+<?php
+if (isset($_POST['signup'])) {
+    $username = $_POST['username'];
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+    $confirmPassword = $_POST['confirmpassword'];
+    $hasedpassword = md5($password);
+    $number = $_POST['number'];
+    $pattern = "/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{8,16}$/";
+    $numPattern = "/^(?=.[0-9]).{10}$/";
+    $mailPattern = "/^[a-zA-Z]+ @[a-zA-Z]+\.[a-zA-Z]{2,4}$/";
+    $errors = "";
+    // $existinguser = "SELECT FROM"
+    if (empty($username) || empty($email) || empty($password) || empty($confirmPassword)) {
+        echo "Please fill up the form.";
+    } else if ((strlen($username) < 8)) {
+        echo "username should be more than 8 characters.<br>";
+    } else if ($email != $mailPattern) {
+        echo "Invalid mail. <br>";
+    } else if (!(preg_match($pattern, $password))) {
+        echo "incorrect pattern.<br>";
+    } else if ($password != $confirmPassword) {
+        echo "password didn't match.<br>";
+    } else if ($number != $numPattern) {
+        echo "Invalid number";
+    }
+
+    // else {
+    //     header("Location:loginform2.php");
+    // }
+
+    // for connecting to database
+
+    $host = 'localhost';
+    $name = 'root';
+    $hostpassword = '';
+    $databasename = 'articlemanagement';
+
+    $connectin = mysqli_connect($host, $name, $hostpassword, $databasename);
+    $sql = "INSERT INTO registrationdetails (username, email, password, number) values ('$username', '$email', '$password', '$number')";
+
+    mysqli_query($connectin, $sql);
+    if (mysqli_connect_error()) {
+        echo "Please enter valid information. <br>";
+    }else  {
+        header ("Location:loginform2.php");
+    }
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,29 +62,32 @@
     <!-- sign up form  -->
     <section class="sectionpage_1">
         <div class="mainpage">
-            <div class = "innerpage1">
+            <div class="innerpage1">
                 <div class="headingpage">
                     <h2>Sign Up</h2>
                 </div>
 
                 <div class="innerpage">
                     <form action="" method="POST">
-                        <label for="name" id = "topic">Name</label><br>
-                        <input type="text" name="name" id="details"><br>
+                        <label for="name" id="topic">Username</label><br>
+                        <input type="text" name="username" id="details"><br>
 
-                        <label for="email" id = "topic">Email</label><br>
+                        <label for="email" id="topic">Email</label><br>
                         <input type="text" name="email" id="details"><br>
 
-                        <label for="password" id = "topic">Password</label><br>
+                        <label for="password" id="topic">Password</label><br>
                         <input type="password" name="password" id="details"><br>
 
-                        <label for="confirmpassword" id = "topic">Confirm Password</label><br>
+                        <label for="confirmpassword" id="topic">Confirm Password</label><br>
                         <input type="password" name="confirmpassword" id="details"><br>
-                        
-                        <button type="submit" name="submit">Submit</button>
+
+                        <label for="number">Phone Number</label><br>
+                        <input type="number" name="number" id="details"><br>
+
+                        <button type="signup" name="signup">Sign Up</button>
                     </form>
                 </div>
-             </div>
+            </div>
     </section>
 </body>
 

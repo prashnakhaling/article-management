@@ -22,7 +22,7 @@
                     
 
                     <label for="content" class="">Content</label><br>
-                    <input type="text" name=" content" id="content"><br>
+                    <textarea type="text" name=" content" id="content"></textarea><br>
 
                     <label for="image" class="topic">Image</label><br>
                     <input type="file" name="image" id="image"><br>
