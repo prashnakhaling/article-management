@@ -6,7 +6,7 @@ if (isset($_POST['login'])) {
     if  (empty($username)) {
         echo "Name is required <br>";
     }
-    if (empty ($password)){
+    else if (empty ($password)){
         echo "Password is required.";
     }
 }

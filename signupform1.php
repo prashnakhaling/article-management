@@ -10,42 +10,44 @@ if (isset($_POST['signup'])) {
     $numPattern = "/^(?=.[0-9]).{10}$/";
     $mailPattern = "/^[a-zA-Z]+ @[a-zA-Z]+\.[a-zA-Z]{2,4}$/";
     $errors = "";
-    // $existinguser = "SELECT FROM"
+
+
     if (empty($username) || empty($email) || empty($password) || empty($confirmPassword)) {
         echo "Please fill up the form.";
     } else if ((strlen($username) < 8)) {
         echo "username should be more than 8 characters.<br>";
-    } else if ($email != $mailPattern) {
+    } else if (!(preg_match($mailPattern, $email))) {
         echo "Invalid mail. <br>";
     } else if (!(preg_match($pattern, $password))) {
         echo "incorrect pattern.<br>";
-    } else if ($password != $confirmPassword) {
+    } else if (!(preg_match($numPattern, $number))) {
         echo "password didn't match.<br>";
     } else if ($number != $numPattern) {
         echo "Invalid number";
     }
 
     // else {
-    //     header("Location:loginform2.php");
-    // }
+//     header("Location:loginform2.php");
+// }
 
     // for connecting to database
 
-    $host = 'localhost';
-    $name = 'root';
-    $hostpassword = '';
-    $databasename = 'articlemanagement';
+    // $host = 'localhost';
+    // $name = 'root';
+    // $hostpassword = '';
+    // $databasename = 'articlemanagement';
 
-    $connectin = mysqli_connect($host, $name, $hostpassword, $databasename);
-    $sql = "INSERT INTO registrationdetails (username, email, password, number) values ('$username', '$email', '$password', '$number')";
+    // $connectin = mysqli_connect($host, $name, $hostpassword, $databasename);
+    // $sql = "INSERT INTO registrationdetails (username, email, password, number) values ('$username', '$email', '$password', '$number')";
 
-    mysqli_query($connectin, $sql);
-    if (mysqli_connect_error()) {
-        echo "Please enter valid information. <br>";
-    }else  {
-        header ("Location:loginform2.php");
-    }
+    // mysqli_query($connectin, $sql);
+    // if (mysqli_connect_error()) {
+    //     echo "Please enter valid information. <br>";
+    // } else {
+    //     header("Location:loginform2.php");
+    // }
 }
+
 
 ?>
 <!DOCTYPE html>
