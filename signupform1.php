@@ -25,9 +25,7 @@ if (isset($_POST['signup'])) {
     } 
     else if (!(preg_match($numPattern, $number))) {
         echo "password didn't match.<br>";
-    } else ($number != $numPattern) {
-        echo "Invalid number";
-    }
+    } 
 
     // else {
 //     header("Location:loginform2.php");
@@ -43,12 +41,17 @@ if (isset($_POST['signup'])) {
     $connectin = mysqli_connect($host, $name, $hostpassword, $databasename);
     $sql = "INSERT INTO registrationdetails (username, email, password, number) values ('$username', '$email', '$password', '$number')";
 
-    mysqli_query($connectin, $sql);
-    if (mysqli_connect_error()) {
-        echo "Please enter valid information. <br>";
-    } else {
-        header("Location:loginform2.php");
+    // mysqli_query($connectin, $sql);
+    if (mysqli_connect_errno()){
+        echo "failed to connect." . mysqli_connect_error();
+    }else {
+      mysqli_query($connectin, $sql);
     }
+    // if (mysqli_connect_error()) {
+    //     echo "Please enter valid information. <br>";
+    // } else {
+    //     header("Location:loginform2.php");
+    // }
 }
 
 
