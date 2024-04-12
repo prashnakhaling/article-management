@@ -1,4 +1,5 @@
 <?php
+include ("dbconnection.php");
 if (isset($_POST['signup'])) {
     $username = $_POST['username'];
     $email = $_POST['email'];
@@ -9,12 +10,17 @@ if (isset($_POST['signup'])) {
     $pattern = "/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{8,16}$/";
     $numPattern = "/^(?=.[0-9]).{10}$/";
     $errors = "";
-
-
     if (empty($username) || empty($email) || empty($password) || empty($confirmPassword)) {
         echo "Please fill up the form.";
+
     } else if ((strlen($username) < 8)) {
         echo "username should be more than 8 characters.<br>";
+    }
+
+    $confirmuser = "SELECT * FROM registrationdetails WHERE username = '$username'";
+    $result = mysqli_query($connectin, $confirmuser);
+    if (mysqli_num_rows($result) > 0) {
+        echo "username already exist.";
     } else if (!filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)) {
         echo "invalid email.<br>";
 
@@ -26,34 +32,18 @@ if (isset($_POST['signup'])) {
         echo "password didn't match.<br>";
     } else {
 
-        // else {
-//     header("Location:loginform2.php");
-// }
 
-        // for connecting to database
 
-        $host = 'localhost';
-        $name = 'root';
-        $hostpassword = '';
-        $databasename = 'articlemanagement';
 
-        $connectin = mysqli_connect($host, $name, $hostpassword, $databasename);
-        $sql = "INSERT INTO registrationdetails (username, email, password, number) values ('$username', '$email', '$password', '$number')";
+        $sql = "INSERT INTO registrationdetails (username, email, password, number) values ('$username', '$email', '$hasedpassword', '$number')";
 
-        // mysqli_query($connectin, $sql);
-        if (mysqli_connect_errno()) {
-            die("Failed to connect:") . mysqli_connect_error();
+        mysqli_query($connectin, $sql);
 
-        } else {
-            header("Location:loginform2.php");
-            exit();
+        header("Location:loginform2.php");
 
-        }
-        // if (mysqli_connect_error()) {
-        //     echo "Please enter valid information. <br>";
-        // } else {
-        //     header("Location:loginform2.php");
-        // }
+        mysqli_close($connectin);
+
+
     }
 }
 

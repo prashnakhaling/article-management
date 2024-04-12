@@ -3,11 +3,24 @@ if (isset($_POST['login'])) {
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    if  (empty($username)) {
-        echo "Name is required <br>";
+    if (empty($username) || empty($password)) {
+        echo "Please fill up the login details.";
     }
-    else if (empty ($password)){
-        echo "Password is required.";
+
+    include ("dbconnection.php");
+    $sqli = "SELECT username password FROM registrationdetails";
+    $finaldata = mysqli_query($connectin, $sqli);
+    // mysqli_query($connect, $sqli);
+
+    if (mysqli_num_rows($finaldata) > 0) {
+        while ($result = mysqli_fetch_assoc($finaldata)) {
+           $validusername = $result['username'];
+            if ($username !== $validusername) {
+                echo "username didn't match.";
+            } else if (password_verify($password, $hashedpassword)) {
+                header("Location:addarticle4.php");
+            }
+        }
     }
 }
 ?>
@@ -35,7 +48,7 @@ if (isset($_POST['login'])) {
 
                     <label for="password">Password</label><br>
                     <input type="password" name="password" id="details"><br>
-                    <button type="login" name = "login">Log in </button>
+                    <button type="login" name="login">Log in </button>
                 </form>
             </div>
         </div>

@@ -1,0 +1,24 @@
+.containersection{
+    max-width:600px;
+margin:auto;
+}
+.maintable{
+    margin:auto;
+    background-color: lavender;
+}
+.mainheading{
+   text-align: center;
+}
+.articlesdetails{
+    width:500px;
+    margin:auto;
+    border-collapse: collapse;
+    background-color:#C4E4FF;
+}
+/* .rowdetails{
+    border:1px solid;
+} */
+.articlesdetails, td, th {
+    border: 1px solid;
+  }
+  

@@ -1,3 +1,41 @@
+<?php
+include("dbconnection");
+ if(isset($_POST['add'])){
+    $title = $_POST['title'];
+    $content = $_POST['content'];
+    $image = $_POST ['image'];
+
+    if(empty($title) || empty ($content) || empty ($image)){
+        echo "please fill the details to add your articles.";
+    }else if (strlen($title)<5){
+        echo "title should be 5 characters long.";
+    }else
+
+    //connecting the database
+    $host = 'localhost';
+    $username = 'root';
+    $hostpassword = '';
+    $databasename = 'articlemanagement';
+
+    $connect1 = mysqli_connect($host, $username, $hostpassword, $databasename);
+    $sql1 = "INSERT INTO articlesdetails (title, content, image) values ('$title', 'content' , 'image')";
+ 
+    mysqli_query($connect1, $sql1);
+    if (mysqli_connect_errno()) {
+        die("Failed to connect:") . mysqli_connect_error();
+        exit();
+
+    } else {
+        header("Location:addarticle4.php");
+        exit();
+
+    }
+
+ }
+
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -27,7 +65,7 @@
                     <label for="image" class="topic">Image</label><br>
                     <input type="file" name="image" id="image"><br>
 
-                    <button type="submit">Add</button>
+                    <button type="submit" name = "add">Add</button>
                 </form>
             </div>
         </div>
