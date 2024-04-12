@@ -1,6 +1,6 @@
 <?php
 
-include("dbconnection");
+include ("dbconnection.php");
 $sqli = "SELECT *FROM articlesdetails";
 $details = mysqli_query($connectin, $sqli);
 ?>
@@ -18,7 +18,7 @@ $details = mysqli_query($connectin, $sqli);
 <body>
     <section class="containersection">
         <div class="maintable">
-            <div class = "secondpage">
+            <div class="secondpage">
                 <div class="mainheading">
                     <h2>List of Article</h2>
                 </div>
@@ -49,6 +49,12 @@ $details = mysqli_query($connectin, $sqli);
                                 <td><?php echo $content ?></td>
                                 <td><?php echo $image ?></td>
 
+                            </tr>
+                            <tr>
+                                <td><?php echo $title ?></td>
+                                <td><?php echo $date ?></td>
+                                <td><?php echo $content ?></td>
+                                <td><?php echo $image ?></td>
                             </tr>
 
 

@@ -6,23 +6,25 @@ if (isset($_POST['login'])) {
     if (empty($username) || empty($password)) {
         echo "Please fill up the login details.";
     }
+    $finalpassword = password_hash($password, PASSWORD_DEFAULT);
 
     include ("dbconnection.php");
-    $sqli = "SELECT username password FROM registrationdetails";
+    $sqli = "SELECT * FROM registrationdetails";
     $finaldata = mysqli_query($connectin, $sqli);
     // mysqli_query($connect, $sqli);
 
     if (mysqli_num_rows($finaldata) > 0) {
         while ($result = mysqli_fetch_assoc($finaldata)) {
-           $validusername = $result['username'];
-            if ($username !== $validusername) {
-                echo "username didn't match.";
-            } else if (password_verify($password, $hashedpassword)) {
+            $validusername = $result['username'];
+            $validpassword = $result['password'];
+            if ($validusername == $username && $validpassword == $finalpassword) {
                 header("Location:addarticle4.php");
             }
+
         }
     }
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">

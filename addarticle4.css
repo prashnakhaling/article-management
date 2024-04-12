@@ -4,16 +4,18 @@ margin:auto;
 }
 .maintable{
     margin:auto;
-    background-color: lavender;
+    /* background-color: lavender; */
 }
 .mainheading{
    text-align: center;
 }
 .articlesdetails{
-    width:500px;
+    width:100%;
     margin:auto;
     border-collapse: collapse;
-    background-color:#C4E4FF;
+    text-align: center;
+    height:5px;
+    /* background-color:#C4E4FF; */
 }
 /* .rowdetails{
     border:1px solid;
