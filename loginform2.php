@@ -9,7 +9,7 @@ if (isset($_POST['login'])) {
     $finalpassword = password_hash($password, PASSWORD_DEFAULT);
 
     include ("dbconnection.php");
-    $sqli = "SELECT * FROM registrationdetails";
+    $sqli = "SELECT username, password  FROM registrationdetails";
     $finaldata = mysqli_query($connectin, $sqli);
     // mysqli_query($connect, $sqli);
 
@@ -17,10 +17,13 @@ if (isset($_POST['login'])) {
         while ($result = mysqli_fetch_assoc($finaldata)) {
             $validusername = $result['username'];
             $validpassword = $result['password'];
-            if ($validusername == $username && $validpassword == $finalpassword) {
+            if ($validusername != $username) {
+                echo "username not found.";
+            } else if ($validpassword != $finalpassword) {
+                echo "Password didn't matched,";
+            } else {
                 header("Location:addarticle4.php");
             }
-
         }
     }
 }
