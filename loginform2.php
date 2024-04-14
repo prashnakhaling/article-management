@@ -6,7 +6,7 @@ if (isset($_POST['login'])) {
     if (empty($username) || empty($password)) {
         echo "Please fill up the login details.";
     }
-    $finalpassword = password_hash($password, PASSWORD_DEFAULT);
+    // $finalpassword = password_hash($password, PASSWORD_DEFAULT);
 
     include ("dbconnection.php");
     $sqli = "SELECT username, password  FROM registrationdetails";
@@ -15,15 +15,27 @@ if (isset($_POST['login'])) {
 
     if (mysqli_num_rows($finaldata) > 0) {
         while ($result = mysqli_fetch_assoc($finaldata)) {
+
             $validusername = $result['username'];
-            $validpassword = $result['password'];
+            // $validpassword = $result['password'];
+
             if ($validusername != $username) {
                 echo "username not found.";
-            } else if ($validpassword != $finalpassword) {
-                echo "Password didn't matched,";
-            } else {
+            }else if (password_verify($password, $result["password"])) {
                 header("Location:addarticle4.php");
             }
+             else {
+                echo "password didn't matched.";
+
+            }
+            // $validpassword = $result['password'];
+            // if ($validusername != $username) {
+            //     echo "username not found.";
+            // } else if ($validpassword != $finalpassword) {
+            //     echo "Password didn't matched,";
+            // } else {
+            //     header("Location:addarticle4.php");
+            // }
         }
     }
 }
