@@ -32,9 +32,6 @@ if (isset($_POST['signup'])) {
         echo "password didn't match.<br>";
     } else {
 
-
-
-
         $sql = "INSERT INTO registrationdetails (username, email, password, number) values ('$username', '$email', '$hasedpassword', '$number')";
 
         mysqli_query($connectin, $sql);

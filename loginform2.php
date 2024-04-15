@@ -2,6 +2,8 @@
 if (isset($_POST['login'])) {
     $username = $_POST['username'];
     $password = $_POST['password'];
+    $hasedpassword1 = password_hash($password, PASSWORD_DEFAULT);
+
 
     if (empty($username) || empty($password)) {
         echo "Please fill up the login details.";
@@ -9,35 +11,35 @@ if (isset($_POST['login'])) {
     // $finalpassword = password_hash($password, PASSWORD_DEFAULT);
 
     include ("dbconnection.php");
-    $sqli = "SELECT username, password  FROM registrationdetails";
+    $sqli = "SELECT * FROM registrationdetails WHERE username = '$username' AND password = '$password' ";
+    
     $finaldata = mysqli_query($connectin, $sqli);
     // mysqli_query($connect, $sqli);
 
-    if (mysqli_num_rows($finaldata) > 0) {
-        while ($result = mysqli_fetch_assoc($finaldata)) {
-
-            $validusername = $result['username'];
-            // $validpassword = $result['password'];
-
-            if ($validusername != $username) {
-                echo "username not found.";
-            }else if (password_verify($password, $result["password"])) {
-                header("Location:addarticle4.php");
-            }
-             else {
-                echo "password didn't matched.";
-
-            }
-            // $validpassword = $result['password'];
-            // if ($validusername != $username) {
-            //     echo "username not found.";
-            // } else if ($validpassword != $finalpassword) {
-            //     echo "Password didn't matched,";
-            // } else {
-            //     header("Location:addarticle4.php");
-            // }
-        }
+    if (mysqli_num_rows($finaldata) == 0) {
+        $row = mysqli_fetch_assoc($finaldata);
+        header("Location:addarticle4.php");
+    } else {
+        echo "Invalid details";
     }
+    // while ($result = mysqli_fetch_assoc($finaldata)) {
+    // $validusername = $result['username'];
+    // $validpassword = $result['password'];
+
+    // if ($validusername == $username) {
+    //     echo "valid username.";
+    // } else if ($validpassword == $password) {
+    //     echo "valid password";
+    // }
+    //    if($validusername === $username && password_verify($password, $validpassword)) {
+    //     header ("Location:addarticle4.php");
+    //     exit;
+    //    }else{
+    //     echo "please enter valid details";
+    //    }
+
+    // }
+
 }
 
 ?>

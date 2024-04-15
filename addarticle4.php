@@ -1,10 +1,3 @@
-<?php
-
-include ("dbconnection.php");
-$sqli = "SELECT *FROM articlesdetails";
-$details = mysqli_query($connectin, $sqli);
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -30,37 +23,36 @@ $details = mysqli_query($connectin, $sqli);
                                 <th>Date</th>
                                 <th>Content</th>
                                 <th>Image</th>
+                                <th>Edit</th>
+                                <th>Delete</th>
                             </tr>
                         </thead>
-                        <tbody>
-
-                            <?Php
-
+                        <tbody class = "bodydetails">
+                            <?php
+                            include ("dbconnection.php");
+                            $sqli = "SELECT * FROM articlesdetails";
+                            $details = mysqli_query($connectin, $sqli);
                             while ($row = mysqli_fetch_assoc($details)) {
-                                $title = $row['title'];
-                                $date = $row['date'];
-                                $content = $row['content'];
-                                $image = $row['image'];
+                                echo "<tr>
+                                <td>" . $row['title'] . "</td>
+                                <td>" . $row['date'] . "</td>
+                                <td>" . $row['content'] . "</td>
+                                <td>" . $row['image'] . "</td>
+                                <td>
+                                <a href =>Edit</a>
+                               
+                                <td>
+                                <a>Delete</a>   
+                                </td>                                                             
+                               </tr> ";
                             }
                             ?>
-                            <tr>
-                                <td><?php echo $title ?></td>
-                                <td><?php echo $date ?></td>
-                                <td><?php echo $content ?></td>
-                                <td><?php echo $image ?></td>
-
-                            </tr>
-                            <tr>
-                                <td><?php echo $title ?></td>
-                                <td><?php echo $date ?></td>
-                                <td><?php echo $content ?></td>
-                                <td><?php echo $image ?></td>
-                            </tr>
-
-
                         </tbody>
                     </table>
-                    <button></button>
+                   
+               <button>  <a href="articlelogin3.php">Add Article</a></button>
+                    <!-- <button href = "articlelogin3.php">Add Article</button> -->
+                    
                 </div>
             </div>
         </div>

@@ -1,26 +1,36 @@
-.containersection{
-    max-width:600px;
-margin:auto;
+.containersection {
+    max-width: 600px;
+    margin: auto;
 }
-.maintable{
-    margin:auto;
+
+.maintable {
+    margin: auto;
     /* background-color: lavender; */
 }
-.mainheading{
-   text-align: center;
+
+.mainheading {
+    text-align: center;
 }
-.articlesdetails{
-    width:100%;
-    margin:auto;
+
+.articlesdetails {
+    width: 700px;
+    height: 20px;
+    margin: auto;
     border-collapse: collapse;
     text-align: center;
-    height:5px;
+    height: 5px;
     /* background-color:#C4E4FF; */
 }
-/* .rowdetails{
-    border:1px solid;
-} */
-.articlesdetails, td, th {
+
+.articlesdetails,td,th {
     border: 1px solid;
-  }
-  
+    height: 35px;
+}
+
+.button {
+    width: 100px;
+    height: 30px;
+    margin-top: 15px;
+    border: 1px solid black;
+}
+    

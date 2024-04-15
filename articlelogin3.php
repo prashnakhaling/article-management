@@ -1,5 +1,5 @@
 <?php
-include("dbconnection");
+include("dbconnection.php");
  if(isset($_POST['add'])){
     $title = $_POST['title'];
     $content = $_POST['content'];
@@ -11,16 +11,10 @@ include("dbconnection");
         echo "title should be 5 characters long.";
     }else
 
-    //connecting the database
-    $host = 'localhost';
-    $username = 'root';
-    $hostpassword = '';
-    $databasename = 'articlemanagement';
-
-    $connect1 = mysqli_connect($host, $username, $hostpassword, $databasename);
-    $sql1 = "INSERT INTO articlesdetails (title, content, image) values ('$title', 'content' , 'image')";
+    $sql = "INSERT INTO articlesdetails (title, content, image) values ('$title', 'content' , 'image')";
+    $data = mysqli_query($connectin, $sql);
  
-    mysqli_query($connect1, $sql1);
+    // mysqli_query($connectin, $sql);
     if (mysqli_connect_errno()) {
         die("Failed to connect:") . mysqli_connect_error();
         exit();
