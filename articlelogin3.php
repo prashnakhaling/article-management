@@ -3,7 +3,10 @@ include ("dbconnection.php");
 if (isset($_POST['add'])) {
     $title = $_POST['title'];
     $content = $_POST['content'];
-    $image = $_POST['image'];
+    $image_file = $_FILES['image']['name'];
+    $tempname = $_FILES['image']['tmp_name'];
+    $folder = 'Images/';
+    $path = $folder.$image_file;
 
     if (empty($title) || empty($content) || empty($image)) {
         echo "please fill the details to add your articles.";
@@ -48,7 +51,7 @@ if (isset($_POST['add'])) {
                 <div class="heading">
                     <h2>Add New Article </h2>
                 </div>
-                <form action="" method="POST">
+                <form action="" method="POST" enctype="multipart/form-data">
                     <label for="title" class="">Title</label><br>
                     <input type="text" name="title" id="title"><br>
 
