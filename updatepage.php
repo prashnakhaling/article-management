@@ -6,10 +6,16 @@ if (isset($_POST['update'])) {
     $content = $_POST['content'];
     $image = $_POST['image'];
 
-    $sql = "UPDATE articlesdetails SET title = '$title', content = '$content', image = '$image' WHERE id = $id";
-    $data = mysqli_query($connectin, $sql);
-    header("Location:addarticle4.php");
-    
+    // $sql = "UPDATE articlesdetails SET title = '$title', content = '$content', image = '$image' WHERE id = $id";
+    // $data = mysqli_query($connectin, $sql);
+    if (empty($image)) {
+        $sql = "UPDATE articlesdetails SET title = '$title', content = '$content' WHERE id = $id";
+        $data = mysqli_query($connectin, $sql);
+    } else {
+        header("Location:addarticle4.php");
+
+    }
+
     // $sql = "SELECT title, content, image FROM articlesdetails ";
     // $data = mysqli_query($connectin, $sql);
     // $row = mysqli_fetch_assoc($data);
@@ -23,7 +29,7 @@ $sql1 = "SELECT title, content, image FROM articlesdetails WHERE id = '$id' ";
 $data = mysqli_query($connectin, $sql1);
 // var_dump($data);
 $row = mysqli_fetch_assoc($data);
- 
+
 
 
 // while ($row = mysqli_fetch_assoc($data)) {
@@ -56,7 +62,7 @@ mysqli_close($connectin);
 
 
                     <label for="content" class="">Content</label></br>
-                    <input type="text" name=" content" id="content" value="<?= $row['content'] ?>"/></br>
+                    <input type="text" name=" content" id="content" value="<?= $row['content'] ?>" /></br>
 
                     <label for="image" class="topic">Image</label></br>
                     <input type="file" name="image" id="image " value="<?= $row['image'] ?>"></br>
