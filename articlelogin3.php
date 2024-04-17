@@ -5,7 +5,7 @@ if (isset($_POST['add'])) {
     $content = $_POST['content'];
     $image_file = $_FILES['image']['name'];
     $tempname = $_FILES['image']['tmp_name'];
-    $folder = 'Images/' . $image_file;
+    $folder = 'images/';
     $path = $folder . $image_file;
 
     if (empty($title) || empty($content) || empty($image_file)) {

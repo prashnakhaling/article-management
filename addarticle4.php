@@ -46,7 +46,7 @@ include("dbconnection.php");
                                 <td>" . $row['title'] . "</td>
                                 <td>" . $row['date'] . "</td>
                                 <td>" . $row['content'] . "</td>
-                                <td>" . $row['image'] . "</td>
+                                <td><img src= 'images/".$row['image']."' height = '100'></td>
                                 <td>
                                 <a href = 'updatepage.php?id=". $row['id']."'>Edit</a>
                                 </td>  
