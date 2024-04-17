@@ -6,7 +6,6 @@ if (isset($_POST['signup'])) {
     $password = $_POST['password'];
     $confirmPassword = $_POST['confirmpassword'];
     $hasedpassword = password_hash($password, PASSWORD_DEFAULT);
-    $number = $_POST['number'];
     $pattern = "/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{8,16}$/";
     $numPattern = "/^(?=.[0-9]).{10}$/";
     $errors = "";
@@ -53,7 +52,7 @@ if (isset($_POST['signup'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registration form </title>
-    <link rel="stylesheet" href="formstylesheet1.css">
+    <link rel="stylesheet"    href = "formstylesheet1.css" >
 </head>
 
 <body>
@@ -62,7 +61,7 @@ if (isset($_POST['signup'])) {
         <div class="mainpage">
             <div class="innerpage1">
                 <div class="headingpage">
-                    <h2>Sign Up</h2>
+                    <h2>Register</h2>
                 </div>
 
                 <div class="innerpage">
@@ -84,6 +83,10 @@ if (isset($_POST['signup'])) {
 
                         <button type="signup" name="signup">Sign Up</button>
                     </form>
+                    <div class = "formfooter">
+                        <p class="notice">Already have an account?</p>
+                        <a class="logindirection" href="loginform2.php" >Log in</a>
+                    </div>
                 </div>
             </div>
     </section>

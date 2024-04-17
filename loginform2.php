@@ -11,34 +11,30 @@ if (isset($_POST['login'])) {
     // $finalpassword = password_hash($password, PASSWORD_DEFAULT);
 
     include ("dbconnection.php");
-    $sqli = "SELECT * FROM registrationdetails WHERE username = '$username' AND password = '$password' ";
-    
+    $sqli = "SELECT * FROM registrationdetails WHERE username = '$username' LIMIT 1 ";
+   // var_dump($sqli);
+   // exit;
     $finaldata = mysqli_query($connectin, $sqli);
+    // var_dump($finaldata);
     // mysqli_query($connect, $sqli);
+// var_dump(mysqli_num_rows($finaldata));
+    
+    
 
-    if (mysqli_num_rows($finaldata) == 0) {
+    if (mysqli_num_rows($finaldata) > 0) {
         $row = mysqli_fetch_assoc($finaldata);
-        header("Location:addarticle4.php");
+        // var_dump($row);
+        if ($row["username"] != $username) {
+            echo "Invalid username.";
+
+        } else if(password_verify($password, $row["password"])) {
+            // echo "vayo";
+            header("Location:addarticle4.php");
+        }
+        
     } else {
         echo "Invalid details";
     }
-    // while ($result = mysqli_fetch_assoc($finaldata)) {
-    // $validusername = $result['username'];
-    // $validpassword = $result['password'];
-
-    // if ($validusername == $username) {
-    //     echo "valid username.";
-    // } else if ($validpassword == $password) {
-    //     echo "valid password";
-    // }
-    //    if($validusername === $username && password_verify($password, $validpassword)) {
-    //     header ("Location:addarticle4.php");
-    //     exit;
-    //    }else{
-    //     echo "please enter valid details";
-    //    }
-
-    // }
 
 }
 
@@ -69,6 +65,10 @@ if (isset($_POST['login'])) {
                     <input type="password" name="password" id="details"><br>
                     <button type="login" name="login">Log in </button>
                 </form>
+                <div class = "loginfooter">
+                    <p class = "accountcreation">Create an account</p>
+                    <a href="signupform1.php" class = "signupredirection">Sign Up</a>
+                </div>
             </div>
         </div>
     </section>

@@ -2,7 +2,7 @@
 .main-container {
     max-width: 350px;
     margin: auto;
-    
+
 }
 
 .mainpage {
@@ -10,7 +10,7 @@
     justify-content: center;
     align-items: center;
     border-radius: 10px;
-    background-color:#9BB8CD;
+    background-color: #9BB8CD;
 }
 
 .innerpage {
@@ -24,13 +24,13 @@
     justify-content: center;
     align-items: center;
     background-color: rgb(255, 255, 255);
-    
+
 }
 
 .heading {
     font-family: sans-serif;
     font-size: 15px;
-    
+
 }
 
 #details {
@@ -46,18 +46,28 @@
 
 button {
     font-family: sans-serif;
-    font-size:15px;
+    font-size: 15px;
     margin: auto;
     width: 75px;
     height: 25px;
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius:5px;
-    border:1px solid black;
+    border-radius: 5px;
+    border: 1px solid black;
     transition: 0.4s;
 }
 
 button:hover {
     color: #9DBC98
+}
+
+.accountcreation {
+    margin-top: 4px;
+    margin-block-end: 0
+}
+
+.signupredirection {
+    /* margin-top:10px; */
+    margin-left: 30px;
 }
