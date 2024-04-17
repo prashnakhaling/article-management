@@ -5,36 +5,39 @@ if (isset($_POST['add'])) {
     $content = $_POST['content'];
     $image_file = $_FILES['image']['name'];
     $tempname = $_FILES['image']['tmp_name'];
-    $folder = 'Images/'.$image_file;
-    $path = $folder.$image_file;
+    $folder = 'Images/' . $image_file;
+    $path = $folder . $image_file;
 
     if (empty($title) || empty($content) || empty($image_file)) {
         echo "please fill the details to add your articles.";
     } else if (strlen($title) < 5) {
         echo "title should be 5 characters long.";
-    } else
+    } else {
 
         $sql = "INSERT INTO articlesdetails (title, content, image) values ('$title', '$content' , '$image_file')";
-       $data = mysqli_query($connectin, $sql);
+        $data = mysqli_query($connectin, $sql);
         if (move_uploaded_file($tempname, $path)) {
-        header("Location:addarticle4.php");
-            
-        }else{
-            echo "file not uploaded";
+            header("Location:addarticle4.php");
+
         }
-
-
-    // if (mysqli_connect_errno()) {
-    //     die("Failed to connect:") . mysqli_connect_error();
-    //     exit();
-
-    // } else {
-    //     header("Location:addarticle4.php");
-    //     exit();
-
-    // }
-
+    }
 }
+// else{
+//         echo "file not uploaded";
+//     }
+
+
+// if (mysqli_connect_errno()) {
+//     die("Failed to connect:") . mysqli_connect_error();
+//     exit();
+
+// } else {
+//     header("Location:addarticle4.php");
+//     exit();
+
+// }
+
+
 
 
 
