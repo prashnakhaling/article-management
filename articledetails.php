@@ -13,7 +13,7 @@ include("dbconnection.php");
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="addarticle4.css">
+    <link rel="stylesheet" href="articletabledesign.css">
 </head>
 
 <body>
@@ -65,8 +65,8 @@ include("dbconnection.php");
 
 
 
-                    <button class = "redirectionbutton">  <a href="articlelogin3.php" >Add Article</a></button>
-                    <!-- <button href = "articlelogin3.php">Add Article</button> -->
+                    <button class = "redirectionbutton">  <a href="addarticle.php" >Add Article</a></button>
+                    <!-- <button href = "addarticle.php">Add Article</button> -->
 
                 </div>
             </div>

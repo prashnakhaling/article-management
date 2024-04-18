@@ -1,10 +1,11 @@
 .containersection {
-    max-width: 600px;
+    /* max-width: 900px; */
     margin: auto;
 }
 
 .maintable {
     margin: auto;
+    /* width:100%; */
     /* background-color: lavender; */
 }
 
@@ -13,16 +14,22 @@
 }
 
 .articlesdetails {
-    width: 700px;
+    width:100%;
     height: 20px;
     margin: auto;
     border-collapse: collapse;
     text-align: center;
     height: 5px;
-    /* background-color:#C4E4FF; */
+    background-color:#C4E4FF;
 }
 
-.articlesdetails,td,th {
+.articlesdetails,td {
+    border: 1px solid;
+    height: 35px;
+   
+}
+th{
+    font-size:20px;
     border: 1px solid;
     height: 35px;
 }

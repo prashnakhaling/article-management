@@ -10,12 +10,12 @@
     justify-content: center;
     align-items: center;
     border-radius: 10px;
-    background-color: #9BB8CD;
+    /* background-color: #9BB8CD; */
 }
 
 .innerpage {
-    width: 270px;
-    height: 270px;
+    width: 290px;
+    height: 285px;
     margin-top: 30px;
     margin-bottom: 30px;
     border-radius: 10px;
@@ -23,14 +23,14 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: rgb(255, 255, 255);
+    background-color:  #9BB8CD;
 
 }
 
 .heading {
     font-family: sans-serif;
     font-size: 15px;
-
+  
 }
 
 #details {
@@ -39,8 +39,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    /* background: white; */
-    border: 1px;
+    border: none;
+    background: transparent;
     border-bottom: 1px solid;
 }
 

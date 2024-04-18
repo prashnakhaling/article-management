@@ -29,7 +29,7 @@ if (isset($_POST['login'])) {
 
         } else if(password_verify($password, $row["password"])) {
             // echo "vayo";
-            header("Location:addarticle4.php");
+            header("Location:addarticle.php");
         }
         
     } else {
@@ -46,7 +46,7 @@ if (isset($_POST['login'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Log in form </title>
-    <link rel="stylesheet" href="loginstylesheet2.css">
+    <link rel="stylesheet" href="loginstylesheet.css">
 </head>
 
 <body>
@@ -67,7 +67,7 @@ if (isset($_POST['login'])) {
                 </form>
                 <div class = "loginfooter">
                     <p class = "accountcreation">Create an account</p>
-                    <a href="signupform1.php" class = "signupredirection">Sign Up</a>
+                    <a href="signupform.php" class = "signupredirection">Sign Up</a>
                 </div>
             </div>
         </div>

@@ -1,0 +1,7 @@
+.firstsection {
+    height: 85px;
+    background-color: rgb(129, 98, 158);
+    display: flex;
+    flex-direction: row;
+    /* justify-content: center; */
+}

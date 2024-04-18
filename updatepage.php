@@ -12,9 +12,13 @@ if (isset($_POST['update'])) {
         $sql = "UPDATE articlesdetails SET title = '$title', content = '$content' WHERE id = $id";
         $data = mysqli_query($connectin, $sql);
     } else {
-        header("Location:addarticle4.php");
+        $sql = "UPDATE articlesdetails SET title = '$title', content = '$content', image = '$image' WHERE id = $id";
+        $data = mysqli_query($connectin, $sql);
 
     }
+    header("Location:addarticle4.php");
+
+
 
     // $sql = "SELECT title, content, image FROM articlesdetails ";
     // $data = mysqli_query($connectin, $sql);

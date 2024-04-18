@@ -17,7 +17,7 @@ if (isset($_POST['add'])) {
         $sql = "INSERT INTO articlesdetails (title, content, image) values ('$title', '$content' , '$image_file')";
         $data = mysqli_query($connectin, $sql);
         if (move_uploaded_file($tempname, $path)) {
-            header("Location:addarticle4.php");
+            header("Location:articledetails.php");
 
         }
     }
@@ -49,7 +49,7 @@ if (isset($_POST['add'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>article log in </title>
-    <link rel="stylesheet" href="articlepage3.css">
+    <link rel="stylesheet" href="addarticledesign.css">
 </head>
 
 <body>

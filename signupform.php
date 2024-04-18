@@ -35,7 +35,7 @@ if (isset($_POST['signup'])) {
 
         mysqli_query($connectin, $sql);
 
-        header("Location:loginform2.php");
+        header("Location:loginform.php");
 
         mysqli_close($connectin);
 
@@ -52,7 +52,7 @@ if (isset($_POST['signup'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registration form </title>
-    <link rel="stylesheet"    href = "formstylesheet1.css" >
+    <link rel="stylesheet"    href = "signupdesign.css" >
 </head>
 
 <body>
