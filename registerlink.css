@@ -1,0 +1,35 @@
+.section_one{
+    max-width: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 615px;
+    margin: auto;
+    background-size: cover;
+    background-image: url(./images/dashboardbackground.png);
+}
+.maindiv{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.notification{
+    font-size: 30px;
+    /* padding-bottom: 5px; */
+}
+.linktologin{
+    font-family: sans-serif;
+    font-size: 15px;
+    margin: auto;
+    width: 75px;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    border: 1px solid black;
+    transition: 0.4s;
+
+}

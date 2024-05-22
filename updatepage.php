@@ -16,7 +16,7 @@ if (isset($_POST['update'])) {
         $data = mysqli_query($connectin, $sql);
 
     }
-    header("Location:addarticle4.php");
+    header("Location:articledetails.php");
 
 
 
@@ -50,7 +50,7 @@ mysqli_close($connectin);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Update Page</title>
-    <link rel="stylesheet" href="articlepage3.css">
+    <link rel="stylesheet" href="addarticledesign.css">
 </head>
 
 <body>

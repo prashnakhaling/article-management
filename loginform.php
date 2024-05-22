@@ -11,7 +11,7 @@ if (isset($_POST['login'])) {
     // $finalpassword = password_hash($password, PASSWORD_DEFAULT);
 
     include ("dbconnection.php");
-    $sqli = "SELECT * FROM registrationdetails WHERE username = '$username' LIMIT 1 ";
+    $sqli = "SELECT * FROM registrationdetail WHERE username = '$username' LIMIT 1 ";
    // var_dump($sqli);
    // exit;
     $finaldata = mysqli_query($connectin, $sqli);
@@ -29,7 +29,7 @@ if (isset($_POST['login'])) {
 
         } else if(password_verify($password, $row["password"])) {
             // echo "vayo";
-            header("Location:addarticle.php");
+            header("Location:articledetails.php");
         }
         
     } else {

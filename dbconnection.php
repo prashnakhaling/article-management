@@ -2,12 +2,10 @@
 $host = 'localhost';
 $name = 'root';
 $hostpassword = '';
-$databasename = 'articlemanagement';
+$databasename = 'articlemanagements';
 
 $connectin = mysqli_connect($host, $name, $hostpassword, $databasename);
-
-if (!$connectin) {
+ if (!$connectin) {
     die("Failed to connect:") . mysqli_connect_error();
-    exit();
-}
-?>
+     exit();
+ }

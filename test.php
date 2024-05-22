@@ -9,7 +9,7 @@ if (isset($_POST['signup'])) {
     $number = $_POST['number'];
     $pattern = "/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{8,16}$/";
     $numPattern = "/^(?=.[0-9]).{10}$/";
-
+    $errors = "";
     if (empty($username) || empty($email) || empty($password) || empty($confirmPassword)) {
         echo "Please fill up the form.";
 
@@ -17,7 +17,7 @@ if (isset($_POST['signup'])) {
         echo "username should be more than 8 characters.<br>";
     }
 
-    $confirmuser = "SELECT * FROM registrationdetail WHERE username = '$username'";
+    $confirmuser = "SELECT * FROM registrationdetails WHERE username = '$username'";
     $result = mysqli_query($connectin, $confirmuser);
     if (mysqli_num_rows($result) > 0) {
         echo "username already exist.";
@@ -30,18 +30,28 @@ if (isset($_POST['signup'])) {
         echo "password didn't match.<br>";
     } else if (!(preg_match($numPattern, $number))) {
         echo "password didn't match.<br>";
-    } else{
+    } 
 
-    
-    
-    $sql = "INSERT INTO `registrationdetail` (`username`, `email`, `password`, `number`) values ('$username', '$email', '$hasedpassword', '$number')";
+    $state = true;
+     if($_SERVER['REQUEST_METHOD']== 'POST'){
+        $state=true;
+     }
+     if($state){
+        echo "<p><a href= 'test.php' >Click Here</a> to activate</p>";
+     }
+    // if ()
+    // else {
+           
+         $sql = "INSERT INTO registrationdetails (username, email, password, number) values ('$username', '$email', '$hasedpassword', '$number')";
+        
+        mysqli_query($connectin, $sql);
 
-    mysqli_query($connectin, $sql);
-    header("Location:registerlink.php");
+        header("Location:loginform.php");
 
-    mysqli_close($connectin);
+        mysqli_close($connectin);
 
-    }
+
+    // }
 }
 
 
@@ -53,7 +63,7 @@ if (isset($_POST['signup'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registration form </title>
-    <link rel="stylesheet" href="signupdesign.css">
+    <link rel="stylesheet"    href = "signupdesign.css" >
 </head>
 
 <body>
@@ -84,9 +94,9 @@ if (isset($_POST['signup'])) {
 
                         <button type="signup" name="signup">Sign Up</button>
                     </form>
-                    <div class="formfooter">
+                    <div class = "formfooter">
                         <p class="notice">Already have an account?</p>
-                        <a class="logindirection" href="loginform.php">Log in</a>
+                        <a class="logindirection" href="loginform2.php" >Log in</a>
                     </div>
                 </div>
             </div>

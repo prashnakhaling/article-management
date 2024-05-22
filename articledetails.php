@@ -59,15 +59,12 @@ include("dbconnection.php");
                             ?>
 
                         </tbody>
-
-
                     </table>
-
-
-
+                    <div class = "button_btn">
                     <button class = "redirectionbutton">  <a href="addarticle.php" >Add Article</a></button>
                     <!-- <button href = "addarticle.php">Add Article</button> -->
-
+<button class = "redirectionbutton"><a href="signupform.php">Log Out</a></button>
+</div>
                 </div>
             </div>
         </div>

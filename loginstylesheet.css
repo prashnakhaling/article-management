@@ -1,7 +1,18 @@
 /* css for log in form  */
 .main-container {
-    max-width: 350px;
+    max-width: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 615px;
     margin: auto;
+    background-size: cover;
+    background-image: url(./images/sky2.10.jpg);
+
+    /* background-image: url(./images/dashboardbackground.png); */
+    /* max-width: 350px;
+    margin: auto; */
 
 }
 
@@ -23,7 +34,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color:  #9BB8CD;
+    background-color: #dde4eb;
+    /* background-color:  #9BB8CD; */
 
 }
 

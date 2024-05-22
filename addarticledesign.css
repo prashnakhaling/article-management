@@ -1,6 +1,17 @@
 .new-article {
-    max-width: 285px;
+    max-width: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 615px;
     margin: auto;
+    background-size: cover;
+    background-image: url(./images/sky2.10.jpg);
+
+    /* background-image: url(./images/dashboardbackground.png); */
+    /* max-width: 285px;
+    margin: auto; */
     
 }
 
@@ -11,7 +22,8 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: #9BB8CD;
+    background-color: #dde4eb;
+    /* background-color: #9BB8CD; */
     border-radius: 10px;
     position:absolute;
     top:35%;

@@ -1,11 +1,21 @@
 /* css for sing up form */
 .sectionpage_1 {
-    max-width:100%;
-    /* height: 500px; */
+    max-width: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 615px;
     margin: auto;
-    position: absolute;
+    background-size: cover;
+    background-image: url(./images/sky2.10.jpg);
+    /* width:100%;
+    background-color: lavender; */
+    /* height: 500px; */
+    /* margin: auto; */
+    /* position: absolute;
     top: 10%;
-    left: 35%;
+    left: 35%; */
     
 
 
@@ -13,15 +23,17 @@
 
 .mainpage {
     margin: auto;
+    padding-top:10px;
     width: 380px;
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 10px;
-    background-color: rgb(156, 175, 170);
+     background-color: #dde4eb;
+
+    /* background-color: rgb(156, 175, 170); */
 
 }
-
 /* .innerpage1 {
     width: 325px;
     height: 470px;

@@ -1,5 +1,5 @@
 .containersection {
-    /* max-width: 900px; */
+    
     margin: auto;
 }
 
@@ -20,7 +20,8 @@
     border-collapse: collapse;
     text-align: center;
     height: 5px;
-    background-color:#C4E4FF;
+    background-color: #dde4eb;
+    /* background-color:#C4E4FF; */
 }
 
 .articlesdetails,td {
@@ -39,5 +40,12 @@ th{
     height: 30px;
     margin-top: 15px;
     border: 1px solid black;
+}
+.button_btn{
+    display:flex;
+    flex-direction: column;
+    justify-content: left;
+    align-content: left;
+
 }
     
